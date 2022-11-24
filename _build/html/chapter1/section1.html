@@ -1,0 +1,928 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Unidad 1 &#8212; Una introducción a las ecuaciones diferenciales</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Campo de pendientes para una sola ecuación" href="section2.html" />
+    <link rel="prev" title="Bienvenido al curso de ecuaciones diferenciales ordinarias" href="../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/images.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Una introducción a las ecuaciones diferenciales</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Bienvenido al curso de ecuaciones diferenciales ordinarias
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Unidad 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="section2.html">
+   Campo de pendientes para una sola ecuación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="section3.html">
+   Solución lineal de prmer orden
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/chapter1/section1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapter1/section1.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chapter1/section1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definiciones">
+   Definiciones
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicios">
+     Ejercicios
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cuando-una-funcion-es-solucion-de-una-ecuacion-diferencial">
+   Cuando una función es solución de una ecuación diferencial
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Ejercicios
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primer-metodo-para-encontrar-las-soluciones-de-una-edo-de-primer-orden">
+   Primer método para encontrar las soluciones de una EDO de primer orden
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecuaciones-variables-separables">
+     Ecuaciones Variables separables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integrales-y-curvas-integrales">
+     Integrales y curvas integrales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#considere-el-ejemplo">
+     Considere el ejemplo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Ejercicios
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ecuacion-logistica-verhulst">
+   Ecuación Lógistica  (Verhulst)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problema-un-modelo-de-ahorro">
+     Problema, un modelo de ahorro
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Unidad 1</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definiciones">
+   Definiciones
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicios">
+     Ejercicios
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cuando-una-funcion-es-solucion-de-una-ecuacion-diferencial">
+   Cuando una función es solución de una ecuación diferencial
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Ejercicios
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primer-metodo-para-encontrar-las-soluciones-de-una-edo-de-primer-orden">
+   Primer método para encontrar las soluciones de una EDO de primer orden
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ecuaciones-variables-separables">
+     Ecuaciones Variables separables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integrales-y-curvas-integrales">
+     Integrales y curvas integrales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#considere-el-ejemplo">
+     Considere el ejemplo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Ejercicios
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ecuacion-logistica-verhulst">
+   Ecuación Lógistica  (Verhulst)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problema-un-modelo-de-ahorro">
+     Problema, un modelo de ahorro
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="unidad-1">
+<h1>Unidad 1<a class="headerlink" href="#unidad-1" title="Permalink to this headline">#</a></h1>
+<p>Cuando tenemos una ecuación como <span class="math notranslate nohighlight">\(x+2=3\)</span> buscamos un valor de <span class="math notranslate nohighlight">\(x\)</span> tal que satisfaga la ecuación en algún sentido, en el caso de ecuación diferencial ordinaria (EDO), ya no buscamos un número sino una función en una ecuación, la cual esta relacionada con sus derivadas. por ejemplo
+$<span class="math notranslate nohighlight">\(\label{eq1}
+\frac{dy}{dx}=5y(x),
+\)</span><span class="math notranslate nohighlight">\(
+aquí estamos buscando una función \)</span>y(x)<span class="math notranslate nohighlight">\( cuya derivada sea \)</span>5y(x)$. Nosotros podemos probar por simple inspección que esta  función seria</p>
+<div class="math notranslate nohighlight">
+\[y(x)=Ce^{5x},\]</div>
+<p>donde <span class="math notranslate nohighlight">\(c\)</span> es una constante. Notemos que de esta forma no tenemos una sola función sino una familia de funciones. Lo que nos hace preguntarnos ¿Cómo debemos modificar la ecuación \eqref{eq1} para obtengamos una única solución? Para solucionar esta pregunta tenemos que agregar un termino llamado condición inicial el cual determina el valor de la función en un punto especifico, de esta forma la \eqref{eq1}$ se puede reescribir de la forma</p>
+<div class="math notranslate nohighlight">
+\[\label{eq2}
+\frac{dy}{dx}=5y(x), \ \ \ y(0)=1. 
+\]</div>
+<section id="definiciones">
+<h2>Definiciones<a class="headerlink" href="#definiciones" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Llamaremos ecuación diferencial ordinaria (abreviado EDO) a una ecuación que involucra a una variable independiente <span class="math notranslate nohighlight">\(x\)</span>, una función <span class="math notranslate nohighlight">\(y(x)\)</span> y una o varias derivadas de <span class="math notranslate nohighlight">\(y(x)\)</span></p></li>
+</ul>
+<p>Ejemplos</p>
+<div class="math notranslate nohighlight">
+\[
+ xy'(x)=y+5x-y^2,\ \ \ \ \  \ \ 3\frac{d^2y}{dx^2}=yx,\ \ \ \ \  \ \ \dot{y}=5xy+5y
+ \]</div>
+<ul class="simple">
+<li><p>Llamaremos orden de una EDO al orden de la mayor derivada en la ecuación.</p></li>
+<li><p>Llamaremos una ecuación diferencial lineal de orden <span class="math notranslate nohighlight">\(n\)</span> se la podemos escribir de la siguiente forma</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[a_n(x)\frac{d^ny}{dx^n}+a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}}+\cdots+a_1(x)\frac{dy}{dx}+a_0(x)y=b(x).\]</div>
+<ul class="simple">
+<li><p>Dada una EDO de orden <span class="math notranslate nohighlight">\(n\)</span>, llamaremos solución de esta EDO a una función <span class="math notranslate nohighlight">\(y = f (x)\)</span> definida en un intervalo <span class="math notranslate nohighlight">\(I\)</span> y que tiene al menos <span class="math notranslate nohighlight">\(n\)</span> derivadas continuas en el intervalo <span class="math notranslate nohighlight">\(I\)</span>, de forma que cuando sustituimos <span class="math notranslate nohighlight">\(y = f (x)\)</span> y sus derivadas en la EDO se cumple la ecuación en todo el intervalo</p></li>
+<li><p>Dada una EDO de orden <span class="math notranslate nohighlight">\(n\)</span>, un intervalo <span class="math notranslate nohighlight">\(I\)</span> y un punto <span class="math notranslate nohighlight">\(x_0\in I\)</span>, llamaremos problema de valores iniciales (abreviado PVI) al problema de encontrar las funciones que cumplen la EDO de orden <span class="math notranslate nohighlight">\(n\)</span> anterior en el intervalo <span class="math notranslate nohighlight">\(I\)</span>. Además satisfacen las condiciones iniciales $<span class="math notranslate nohighlight">\(y(x_0) = c_0, y'(x_0) = c_1, . . . , y^{(n-1)}(x_0) = c_{n-1},\)</span><span class="math notranslate nohighlight">\( donde los \)</span>c_i<span class="math notranslate nohighlight">\( son \)</span>n$ números prefijados</p></li>
+</ul>
+<section id="ejercicios">
+<h3>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>En los siguientes problemas establezca el orden de la ecuación diferencial dada. Determine si la ecuación es lineal</p></li>
+</ol>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((1-x)y''=\cos x+y'''-y'\sin x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{d^3y}{dx^3}+\cos y=x^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x^6y^{(4)}+x^3y^{(3)}+\ln (x)y^{(1)}-y=\cos(x)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{d^2x}{dt^2}+\frac{dx}{dt}+x =\ln (x+t)\)</span></p></li>
+</ul>
+</section>
+</section>
+<section id="cuando-una-funcion-es-solucion-de-una-ecuacion-diferencial">
+<h2>Cuando una función es solución de una ecuación diferencial<a class="headerlink" href="#cuando-una-funcion-es-solucion-de-una-ecuacion-diferencial" title="Permalink to this headline">#</a></h2>
+<p>Para comprobar si una ecuación diferencial tiene una cierta solución lo único que debemos hacer es sustituir la función en la ecuación para comprobar si es la solución como mostraremos en el siguiente ejemplo</p>
+<p>Comprobemos que la función  <span class="math notranslate nohighlight">\(y(x)=4e^{-3x}+2\)</span>  es solución de la ecuación <span class="math notranslate nohighlight">\(2y''(x)+3y'(x)-9y(x)=-18\)</span></p>
+<p>para ello lo primero que hacemos es calcular las derivadas,</p>
+<p><span class="math notranslate nohighlight">\(\begin{split}
+y'(x)&amp;=-12e^{-3x},\\
+y''(x)&amp;=36e^{-3x},
+\end{split}\)</span></p>
+<p>posteriormente sustituimos en la ecuación y comprobamos que la igualdad se satisfaga</p>
+<p><span class="math notranslate nohighlight">\(\begin{split}
+2y''(x)+3y'(x)-9y(x)&amp;=-18,\\
+2(36e^{-3x})+3(-12e^{-3x})-9(4e^{-3x}+2)&amp;=-18,\\
+(72-36-36)e^{-3x}-18&amp;=-18,\\
+-18&amp;=-18.
+\end{split}\)</span></p>
+<section id="id1">
+<h3>Ejercicios<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Compruebe que las familias de las funciones son soluciones de las  ecuaciones</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\frac{dP}{dt}=P(t)(1-P(t))\)</span> con la familia <span class="math notranslate nohighlight">\(P=\frac{c_1e^t}{1+c_1e^t}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{dy}{dx}+2xy=1\)</span> con la familia <span class="math notranslate nohighlight">\(y=e^{-x^2}\int_0^xe^{t^2}dt+c_1e^{-x^2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{d^2y}{dx^2}-4\frac{dy}{dx}+4y=0\)</span> con la familia <span class="math notranslate nohighlight">\(y=c_1e^{2x}+c_2xe^{2x}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(xy'-2y=0\)</span> con la familia <span class="math notranslate nohighlight">\(\begin{cases}-x^2,&amp;\ \  x&lt;0\\x^2,&amp;\ \  x\geq0\end{cases}\)</span>, en <span class="math notranslate nohighlight">\((-\infty,\infty)\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="primer-metodo-para-encontrar-las-soluciones-de-una-edo-de-primer-orden">
+<h2>Primer método para encontrar las soluciones de una EDO de primer orden<a class="headerlink" href="#primer-metodo-para-encontrar-las-soluciones-de-una-edo-de-primer-orden" title="Permalink to this headline">#</a></h2>
+<section id="ecuaciones-variables-separables">
+<h3>Ecuaciones Variables separables<a class="headerlink" href="#ecuaciones-variables-separables" title="Permalink to this headline">#</a></h3>
+<p>La EDO de variable separable tiene la forma</p>
+<div class="math notranslate nohighlight">
+\[
+\label{equasol}
+N(y)y'+M(x)=0.
+\]</div>
+<p>Para resolver \eqref{equasol} el siguiente procedimiento</p>
+<ol class="simple">
+<li><p>Separa las variables para escribir la EDO de la forma <span class="math notranslate nohighlight">\(N(y)y'+M(x)=0\)</span>, e identificar los coeficientes <span class="math notranslate nohighlight">\(N(y)\)</span> y <span class="math notranslate nohighlight">\(M(x)\)</span></p></li>
+<li><p>Determine la antiderivada <span class="math notranslate nohighlight">\(G(y)\)</span> para <span class="math notranslate nohighlight">\(N(y)\)</span> y otra  <span class="math notranslate nohighlight">\(F(x)\)</span> para <span class="math notranslate nohighlight">\(N(x)\)</span>.</p></li>
+<li><p>Todas las soluciones <span class="math notranslate nohighlight">\(y=y(x)\)</span> satisfacen la ecuación <span class="math notranslate nohighlight">\(G(y)+F(x)=C\)</span>, donde <span class="math notranslate nohighlight">\(C\)</span> es una constante</p></li>
+</ol>
+</section>
+<section id="integrales-y-curvas-integrales">
+<h3>Integrales y curvas integrales<a class="headerlink" href="#integrales-y-curvas-integrales" title="Permalink to this headline">#</a></h3>
+<p>Definiremos algunos términos nuevos</p>
+<p><em>Integrales y curvas integrales</em> Una función no constante <span class="math notranslate nohighlight">\(H(x,y)\)</span> en un rectángulo Res una integral de la EDO <span class="math notranslate nohighlight">\(Ny'+M=0\)</span> si para cualquier solución <span class="math notranslate nohighlight">\(y(x)\)</span> cuya gráfica este dentro de R, <span class="math notranslate nohighlight">\(H(x,y(x))=C\)</span> para alguna constante <span class="math notranslate nohighlight">\(C\)</span>. El conjunto de puntos en R que satisfacen <span class="math notranslate nohighlight">\(H(x,y)=C\)</span> es una curva integral de la EDO. Si C es una constante no especificada, entonces <span class="math notranslate nohighlight">\(H(x,y)=C\)</span> es la solución general implicita de la EDO</p>
+</section>
+<section id="considere-el-ejemplo">
+<h3>Considere el ejemplo<a class="headerlink" href="#considere-el-ejemplo" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+yy'-x&amp;=0,\\
+y\frac{dy}{dx}&amp;=x,\\
+ydy&amp;=xdx,\\
+\int ydy&amp;=\int xdx,\\
+\frac{y^2}{2}&amp;=\frac{x^2}{2}+c,\\
+y^2-x^2&amp;=c.
+\end{split}
+\end{split}\]</div>
+<p>La ecuación <span class="math notranslate nohighlight">\(y^2-x^2=c\)</span> es considerada una solución general o familia de soluciones, para determinar una solución que pase por la condición inicial <span class="math notranslate nohighlight">\(y(0)=1\)</span>, sustituimos en la ecuación</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+y^2(x)-x^2&amp;=c,\\
+y^2(0)-0^2&amp;=c,\\
+1^2-0&amp;=c\\
+1&amp;=c
+\end{split}
+\end{split}\]</div>
+<p>de esta forma obtenemos que la solución del problema inicial es</p>
+<div class="math notranslate nohighlight">
+\[y^2-x^2=1\]</div>
+</section>
+<section id="id2">
+<h3>Ejercicios<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p>Encuentre</p>
+<ol class="simple">
+<li><p>La curva integral de <span class="math notranslate nohighlight">\(yy'+x=0\)</span> pasando por el punto <span class="math notranslate nohighlight">\((2,-1) \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((1-y^2)y'+x^2=0\)</span> Encuentre la solución general</p></li>
+<li><p><span class="math notranslate nohighlight">\((1-y^2)y'+x^2=0\)</span>, encuentre la curva integral que pasando por el punto <span class="math notranslate nohighlight">\((-1,1/2)\)</span></p></li>
+</ol>
+</section>
+</section>
+<section id="ecuacion-logistica-verhulst">
+<h2>Ecuación Lógistica  (Verhulst)<a class="headerlink" href="#ecuacion-logistica-verhulst" title="Permalink to this headline">#</a></h2>
+<p>La solución de la ecuación logística es conocida como la <a class="reference external" href="https://es.wikipedia.org/wiki/Funci%C3%B3n_log%C3%ADstica">función</a>, la cual se usa para modelar diferentes fenómenos como propagación de enfermedades, crecimiento poblacional difusión en redes sociales, entre otros.</p>
+<p>Supongamos que tenemos una población de peces en un estanque, y queremos modelar la población en un determinado tiempo. Para ello vamos a crear un modelo basado en ecuaciones diferenciales ordinarias, usando el siguiente principio</p>
+<p>La  tasa de cambio neta de  la población de peces en toneladas <span class="math notranslate nohighlight">\(y'(t)\)</span> es equivalente a la tasa de nacimiento menos la tasa de muerte.</p>
+<font color='blue'>    
+¿Podemos escribir esto como una ecuación diferencial?
+¿Qué supuestos debemos incluir?
+</font>    
+<p>Notemos que debemos incluir nuevos supuestos, por ejemplo,</p>
+<ul class="simple">
+<li><p>El modelo es continuo.</p></li>
+<li><p>La tasa de nacimiento de la población es proporcional a la población existente.</p></li>
+<li><p>Existe una “penalización” por el hecho de sobrepoblación.</p></li>
+<li><p>la tasa de reproducción es proporcional a la cantidad de recursos disponibles.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{dy}{dt}=ry\Big(1-\frac{y}{k}\Big),\]</div>
+<p>La familia de soluciones de este modelo es</p>
+<div class="math notranslate nohighlight">
+\[y(t)=\frac{ky_0e^{rt}}{k+y_0e^{rt}},\]</div>
+<p>donde <span class="math notranslate nohighlight">\(y_0\)</span> es la condición inicial del problema.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="c1"># Ecuacion Diferencial: dy/dx=f(x,y)</span>
+        
+
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">):</span> 
+    <span class="c1">#return 2*y/x</span>
+    <span class="n">r</span><span class="o">=</span><span class="mf">2.0</span>
+    <span class="n">K</span><span class="o">=</span><span class="mf">3.0</span>
+    <span class="k">return</span> <span class="n">r</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y</span><span class="o">/</span><span class="n">K</span><span class="p">)</span>
+    
+
+
+
+<span class="c1"># Campo de pendientes</span>
+<span class="k">def</span> <span class="nf">campo</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">xf</span><span class="p">,</span><span class="n">yf</span><span class="p">):</span>
+    
+    <span class="c1">#N  numero de pendientes a graficar</span>
+    <span class="c1">#K=3.0</span>
+    <span class="n">xi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.3</span>
+    <span class="c1">#xf = 5  # dominio</span>
+    <span class="n">yi</span><span class="o">=</span> <span class="o">-</span><span class="mf">0.1</span>
+    <span class="c1">#yf= K+0.5*K</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">yi</span><span class="p">,</span> <span class="n">yf</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">U2</span><span class="p">,</span> <span class="n">V2</span> <span class="o">=</span> <span class="n">U</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">U</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">V</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">V</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">U</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">V</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">U2</span><span class="p">,</span> <span class="n">V2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> 
+<span class="n">xf</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">yf</span><span class="o">=</span><span class="mf">4.5</span>
+<span class="n">campo</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">xf</span><span class="p">,</span><span class="n">yf</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Campo de pendientes: $\frac</span><span class="si">{dy}{dx}</span><span class="s1">=ry(1-\frac</span><span class="si">{y}{K}</span><span class="s1">)$&#39;</span><span class="p">)</span>
+<span class="c1">#plt.title(r&#39;Campo de pendientes: $\frac{dy}{dx}=2\frac{y}{x}$&#39;)</span>
+<span class="c1">#plt.title(r&#39;Campo de pendientes: $\frac{dy}{dx}= -y+sin(4*x) $ &#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+
+<span class="nn">File ~/mambaforge-pypy3/envs/book/lib/python3.9/site-packages/IPython/core/interactiveshell.py:2364,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2362</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2363</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2364</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2365</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~/mambaforge-pypy3/envs/book/lib/python3.9/site-packages/IPython/core/magics/pylab.py:99,</span> in <span class="ni">PylabMagics.matplotlib</span><span class="nt">(self, line)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Available matplotlib backends: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">backends_list</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">enable_matplotlib</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_show_matplotlib_backend</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">gui</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+
+<span class="nn">File ~/mambaforge-pypy3/envs/book/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3513,</span> in <span class="ni">InteractiveShell.enable_matplotlib</span><span class="nt">(self, gui)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3492</span> <span class="k">def</span> <span class="nf">enable_matplotlib</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gui</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3493</span>     <span class="sd">&quot;&quot;&quot;Enable interactive matplotlib and inline figure support.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3494</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3495</span><span class="sd">     This takes the following steps:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3511</span><span class="sd">         display figures inline.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3512</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3513</span>     <span class="kn">from</span> <span class="nn">matplotlib_inline.backend_inline</span> <span class="kn">import</span> <span class="n">configure_inline_support</span>
+<span class="g g-Whitespace">   </span><span class="mi">3515</span>     <span class="kn">from</span> <span class="nn">IPython.core</span> <span class="kn">import</span> <span class="n">pylabtools</span> <span class="k">as</span> <span class="n">pt</span>
+<span class="g g-Whitespace">   </span><span class="mi">3516</span>     <span class="n">gui</span><span class="p">,</span> <span class="n">backend</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">find_gui_and_backend</span><span class="p">(</span><span class="n">gui</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pylab_gui_select</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">mambaforge</span><span class="o">-</span><span class="n">pypy3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib_inline</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">backend_inline</span><span class="p">,</span> <span class="n">config</span>  <span class="c1"># noqa</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.1.6&quot;</span>  <span class="c1"># noqa</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">mambaforge</span><span class="o">-</span><span class="n">pypy3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">book</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib_inline</span><span class="o">/</span><span class="n">backend_inline</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;A matplotlib backend for publishing figures via display_data&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Copyright (c) IPython Development Team.</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Distributed under the terms of the BSD 3-Clause License.</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">matplotlib.backends</span> <span class="kn">import</span> <span class="n">backend_agg</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># initial condition</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">]</span>
+
+<span class="c1"># time points</span>
+<span class="n">xf</span><span class="o">=</span><span class="mf">5.0</span>
+<span class="n">yf</span><span class="o">=</span><span class="mf">4.5</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">xf</span><span class="p">)</span>
+
+<span class="c1"># solve ODE</span>
+<span class="k">for</span> <span class="n">yi</span> <span class="ow">in</span> <span class="n">y0</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1.0E-8</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># plot results</span>
+<span class="n">campo</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">xf</span><span class="p">,</span><span class="n">yf</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;y(t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Campo de pendientesny solución de la ecuación: $\frac</span><span class="si">{dy}{dx}</span><span class="s1">=ry(1-\frac</span><span class="si">{y}{K}</span><span class="s1">)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/section1_9_0.png" src="../_images/section1_9_0.png" />
+</div>
+</div>
+ <font color='blue'>
+En este momento nos podemos realizar muchas preguntas
+<ul class="simple">
+<li><p>¿Cómo es el comportamiento de la solución para tiempos largos?</p></li>
+<li><p>En este caso, ¿por que “casi” con cualquier condición inicial tenemos el mismo comportamiento para tiempos grandes?</p></li>
+<li><p>¿Exíste alguna relación entre el comportamiento y la función <span class="math notranslate nohighlight">\(f(y)=ry\Big(1-\frac{y}{k}\Big)\)</span></p></li>
+</ul>
+ </font><section id="problema-un-modelo-de-ahorro">
+<h3>Problema, un modelo de ahorro<a class="headerlink" href="#problema-un-modelo-de-ahorro" title="Permalink to this headline">#</a></h3>
+<p>Suponga que depositamos <span class="math notranslate nohighlight">\(\$ 5000 \)</span> en una cuenta de ahorros con intereses devengados a una tasa de capitalización continua del <span class="math notranslate nohighlight">\( 2\% \)</span>. Si dejamos que <span class="math notranslate nohighlight">\(A (t)\)</span> denote la cantidad de dinero en la cuenta en el tiempo t, entonces la ecuación diferencial para <span class="math notranslate nohighlight">\(A\)</span> es</p>
+<p><span class="math notranslate nohighlight">\(\frac{dA}{dt}=0.02A\)</span></p>
+<ul class="simple">
+<li><p>¿Encuentre la solución analítica</p></li>
+<li><p>Suponiendo que el interés nunca cambia, cual sería el dinero que tendría después de 10 años</p></li>
+</ul>
+<p>Si vemos que al cabo de 10 años, tenemos una buena cantidad de dinero, por ende decidimos retirar cada año la cantidad de <span class="math notranslate nohighlight">\( \$ 500\)</span>, la ecuación diferencial cambia de la siguiente forma, cuando <span class="math notranslate nohighlight">\(t&gt;10\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(\frac{dA}{dt}=0.02A-500\)</span></p>
+<p>De esta forma podemos expresar la ecuación para todo tiempo</p>
+<p><span class="math notranslate nohighlight">\( \frac{dA}{dt}=\begin{cases}0.02A &amp; \text{si } t&lt;10,\\
+0.02A-500&amp; \text{si } t&gt;10.\end{cases} \)</span></p>
+<ul class="simple">
+<li><p>¿Al cabo de 12 años cuanto dinero tendremos?</p></li>
+<li><p>¿Al cabo de cuanto tiempo me voy a quedar sin dinero años cuanto dinero tendremos?</p></li>
+<li><p>Suponiendo que podría vivir con 500 al año, ¿Cual debería ser el  monto inicial para poder vivir de por vida?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">dy</span><span class="o">=</span><span class="n">w</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.02</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="mf">0.02</span><span class="o">*</span><span class="n">y</span><span class="o">-</span><span class="mi">500</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dy</span>
+<span class="c1"># plot results</span>
+<span class="n">xf</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">yf</span><span class="o">=</span><span class="mi">30000</span>
+<span class="n">campo</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="n">xf</span><span class="p">,</span><span class="n">yf</span><span class="p">)</span>
+
+<span class="c1"># initial condition</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">,</span><span class="mi">20000</span><span class="p">,</span><span class="mi">20800</span><span class="p">]</span>
+
+<span class="c1"># time points</span>
+<span class="n">xf</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">yf</span><span class="o">=</span><span class="mf">4.5</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">xf</span><span class="p">)</span>
+
+<span class="c1"># solve ODE</span>
+<span class="k">for</span> <span class="n">yi</span> <span class="ow">in</span> <span class="n">y0</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1.0E-8</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/section1_12_0.png" src="../_images/section1_12_0.png" />
+</div>
+</div>
+ <font color='red'>    
+ Por grupos exponer los siguientes fenómenos:
+<ul class="simple">
+<li><p>Modelos aplicados a la ecuaciones diferenciales</p></li>
+<li><p>Dinámica poblacional</p></li>
+<li><p>Decaimiento radioactivo</p></li>
+<li><p>Ley de enfriamiento de Newton</p></li>
+<li><p>Reacciones químicas</p></li>
+<li><p>Mezclas</p></li>
+<li><p>Cuerpos de caídas y resistencia del aire</p></li>
+</ul>
+</font> </section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapter1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Bienvenido al curso de ecuaciones diferenciales ordinarias</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="section2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Campo de pendientes para una sola ecuación</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Abel Alvarez<br/>
+  
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
